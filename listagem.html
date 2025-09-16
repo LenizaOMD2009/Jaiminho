@@ -2,45 +2,94 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Listagem de Clientes</title>
+  <title>Listagem de Clientes - Meninas Superpoderosas</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Comic Neue', cursive;
+      background: linear-gradient(to bottom, #ffe6e9);
       margin: 40px;
-      background-color: #f9f9f9;
+      color: #333;
     }
     h1 {
       text-align: center;
+      font-size: 2.8rem;
+      color: #ff1493;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px #ffe6f1;
     }
     .btn {
-      padding: 10px 15px;
-      background-color: #2196F3;
+      padding: 12px 20px;
+      background: #ff69b4;
       color: white;
       border: none;
+      border-radius: 30px;
       cursor: pointer;
-      border-radius: 4px;
+      font-weight: 700;
+      font-size: 1.2rem;
       margin-bottom: 20px;
+      box-shadow: 0 5px 15px #ff69b4;
+      transition: background-color 0.3s;
+      display: inline-block;
     }
     .btn:hover {
-      background-color: #1976D2;
+      background: #ff1493;
     }
-    input[type="text"] {
+    #busca {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      box-sizing: border-box;
+      padding: 14px 15px;
+      font-size: 1rem;
+      border-radius: 25px;
+      border: 2px solid #87cefa;
+      margin-bottom: 25px;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #busca:focus {
+      border-color: #7fff00;
+      box-shadow: 0 0 8px #7fff00;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      background: #fff;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
     }
     th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
+      padding: 12px 15px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+      font-weight: 600;
     }
     th {
-      background-color: #f2f2f2;
+      background: #ff69b4;
+      color: white;
+    }
+    tr:hover {
+      background: #ffe6f1;
+    }
+
+    @media(max-width: 600px) {
+      body {
+        margin: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+      }
+      #busca {
+        font-size: 0.9rem;
+        padding: 12px;
+      }
+      table, th, td {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -49,7 +98,7 @@
   <h1>Listagem de Clientes</h1>
 
   <!-- Botão para voltar ao cadastro -->
-  <button onclick="window.location.href='cliente.html'" class="btn">➕ Novo Cliente</button>
+  <button onclick="window.location.href='cliente.html'" class="btn">Novo Cliente</button>
 
   <!-- Campo de busca -->
   <input type="text" id="busca" placeholder="Buscar por nome, e-mail ou telefone..." />
@@ -65,6 +114,14 @@
         <th>Data de Criação</th>
         <th>Data de Atualização</th>
       </tr>
+        <tr>
+                <td>01</td>
+                <td>Julio</td>
+                <td>julioalmeida@gmail.com</td>
+                <td>(11) 98765-4321</td>
+                <td>2024-01-15</td>
+                <td>2024-03-20</td>
+            </tr>
     </thead>
     <tbody id="tabelaClientes">
       <!-- Conteúdo dinâmico -->
