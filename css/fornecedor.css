@@ -1,359 +1,230 @@
-/* Fonte elegante e corpo da página */
+/* Fonte divertida */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     margin: 0;
-    color: #f5f6fa;
-    padding: 20px;
-    box-sizing: border-box;
+    padding: 0;
+    background-color: #FFF0F5;
+    font-family: 'Comic Neue', cursive;
+    color: #333;
 }
 
-/* Container do formulário */
-.form-container {
-    background-color: #1f1f2f;
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-    width: 100%;
-    max-width: 500px;
-    box-sizing: border-box;
-}
-
-/* Título */
 h1 {
     text-align: center;
-    margin-bottom: 35px;
-    font-size: 28px;
-    color: #f5f6fa;
-    letter-spacing: 1px;
+    color: #FF69B4;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px #fff;
 }
 
-/* Input container */
+.form-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border: 4px solid #FF69B4;
+    animation: pop-in 0.6s ease-out;
+}
+
+@keyframes pop-in {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
 .input-container {
     position: relative;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-/* Inputs */
 .input-container input {
     width: 100%;
-    padding: 18px 45px 18px 15px;
-    border: 1px solid #444;
+    padding: 12px 10px;
+    border: 2px solid #87CEFA;
     border-radius: 10px;
-    font-size: 16px;
-    background-color: #2b2b3f;
-    color: #f5f6fa;
-    transition: all 0.3s;
-    box-sizing: border-box;
-}
-
-/* Foco no input */
-.input-container input:focus {
-    border-color: #40739e;
-    box-shadow: 0 0 8px rgba(64,115,158,0.5);
     outline: none;
+    transition: 0.3s;
+    font-size: 1rem;
 }
 
-/* Floating label */
+.input-container input:focus {
+    border-color: #7FFF00;
+    box-shadow: 0 0 5px #7FFF00;
+}
+
 .input-container label {
     position: absolute;
-    left: 15px;
     top: 50%;
+    left: 12px;
     transform: translateY(-50%);
-    color: #aaa;
-    font-size: 16px;
+    background-color: white;
+    padding: 0 5px;
+    color: #888;
+    font-size: 0.9rem;
     pointer-events: none;
     transition: 0.3s;
 }
 
 .input-container input:focus + label,
 .input-container input:not(:placeholder-shown) + label {
-    top: -10px;
-    left: 12px;
-    font-size: 14px;
-    color: #40739e;
-    background-color: #1f1f2f;
-    padding: 0 5px;
+    top: -8px;
+    font-size: 0.75rem;
+    color: #FF69B4;
 }
 
-/* Ícones CSS com pseudo-elementos */
-.input-container::after {
-    content: '';
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-}
-
-/* Ícone de Código - ID */
-.input-container.codico::after {
-    background: linear-gradient(45deg, #40739e 25%, transparent 25%) center/12px 12px repeat;
-    border-radius: 3px;
-}
-
-/* Ícone de Nome - Usuário */
-.input-container.nome::after {
-    width: 14px;
-    height: 14px;
-    border: 2px solid #aaa;
-    border-radius: 50%;
-    position: absolute;
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.input-container.nome::before {
-    content: '';
-    width: 22px;
-    height: 12px;
-    border: 2px solid #aaa;
-    border-radius: 10px;
-    position: absolute;
-    right: 13px;
-    top: 50%;
-    transform: translateY(8%);
-}
-
-/* Ícone de Email */
-.input-container.email::after {
-    width: 22px;
-    height: 14px;
-    border: 2px solid #aaa;
-    border-radius: 2px;
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.input-container.email::before {
-    content: '';
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    width: 0;
-    height: 0;
-    border-left: 11px solid transparent;
-    border-right: 11px solid transparent;
-    border-bottom: 7px solid #aaa;
-    transform: translateY(-60%);
-}
-
-/* Ícone de Telefone */
-.input-container.telefone::after {
-    width: 14px;
-    height: 14px;
-    border: 2px solid #aaa;
-    border-radius: 50% 50% 0 0;
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-}
-
-/* Ícone de Calendário */
-.input-container.data::after {
-    width: 18px;
-    height: 18px;
-    border: 2px solid #aaa;
-    border-radius: 3px;
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.input-container.data::before {
-    content: '';
-    width: 2px;
-    height: 6px;
-    background: #aaa;
-    position: absolute;
-    right: 19px;
-    top: 38%;
-}
-
-@media (max-width: 550px) {
-    .form-container {
-        padding: 30px 20px;
-    }
-
-    input {
-        font-size: 16px;
-        padding: 15px 40px 15px 12px;
-    }
-
-    button {
-        font-size: 18px;
-        padding: 16px;
-    }
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    color: #f5f6fa;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Container do formulário */
-.form-container {
-    background-color: #1f1f2f;
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-    width: 100%;
-    max-width: 500px;
-    box-sizing: border-box;
-}
-
-/* Título */
-h1 {
-    text-align: center;
-    margin-bottom: 35px;
-    font-size: 28px;
-    color: #f5f6fa;
-    letter-spacing: 1px;
-}
-
-/* Input container */
-.input-container {
-    position: relative;
-    margin-bottom: 25px;
-}
-
-/* Inputs */
-.input-container input {
-    width: 100%;
-    padding: 18px 45px 18px 15px;
-    border: 1px solid #444;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: #2b2b3f;
-    color: #f5f6fa;
-    transition: all 0.3s;
-    box-sizing: border-box;
-}
-
-/* Foco no input */
-.input-container input:focus {
-    border-color: #44bd32;
-    box-shadow: 0 0 8px rgba(68,189,50,0.5);
-    outline: none;
-}
-
-/* Floating label */
-.input-container label {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #aaa;
-    font-size: 16px;
-    pointer-events: none;
-    transition: 0.3s;
-}
-
-.input-container input:focus + label,
-.input-container input:not(:placeholder-shown) + label {
-    top: -10px;
-    left: 12px;
-    font-size: 14px;
-    color: #44bd32;
-    background-color: #1f1f2f;
-    padding: 0 5px;
-}
-
-/* Garante que links se comportem como botões */
-button.cadastrar, button.button-voltar, button.button-lista,
-a.cadastrar, a.button-voltar, a.button-lista {
+.cadastrar {
     display: inline-block;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #FF69B4, #87CEFA, #7FFF00);
+    color: white;
+    font-weight: bold;
     text-align: center;
     text-decoration: none;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 12px;
-    transition: all 0.4s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-/* Botão Cadastrar - Verde moderno */
-/* Botão Cadastrar - versão menor */
-.cadastrar {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
-    color: #fff;
-    padding: 14px;       /* diminuiu de 18px para 14px */
-    font-size: 18px;     /* diminuiu de 20px para 18px */
-    width: 93%;
-    margin-bottom: 12px;
-    border-radius: 12px;
-    font-weight: bold;
-    text-align: center;
-    transition: all 0.4s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 15px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
 
 .cadastrar:hover {
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
-    transform: translateY(-2px);  /* leve efeito ao passar o mouse */
-    box-shadow: 0 7px 18px rgba(0,0,0,0.4);
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
-/* Botão Voltar - Azul elegante */
-.button-voltar {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    color: #fff;
-    padding: 16px;
+.button-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.button-voltar,
+.button-lista {
     flex: 1;
-    margin-right: 5px;
+    padding: 10px;
+    background-color: #FF69B4;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .button-voltar:hover {
-    background: linear-gradient(135deg, #2980b9, #3498db);
-    transform: translateY(-2px);
-    box-shadow: 0 7px 18px rgba(0,0,0,0.4);
-}
-
-/* Botão Lista de Fornecedor - Amarelo/Dourado */
-.button-lista {
-    background: linear-gradient(135deg, #f1c40f, #f39c12);
-    color: #fff;
-    padding: 16px;
-    flex: 1;
-    margin-left: 5px;
+    background-color: #FF1493;
 }
 
 .button-lista:hover {
-    background: linear-gradient(135deg, #f39c12, #f1c40f);
-    transform: translateY(-2px);
-    box-shadow: 0 7px 18px rgba(0,0,0,0.4);
+    background-color: #00BFFF;
 }
 
-/* Agrupamento dos botões laterais */
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-/* Responsividade para telas pequenas */
-@media (max-width: 550px) {
+/* Responsive */
+@media (max-width: 600px) {
     .button-group {
         flex-direction: column;
     }
-    .button-group a,
-    .button-group button {
-        margin: 5px 0;
-        width: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffb6c1, #a0e7e5);
+    font-family: 'Comic Neue', cursive;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-container {
+    background: white;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    border: 5px solid #ff69b4;
+    animation: pop-in 0.7s ease forwards;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #ff1493;
+    text-shadow: 2px 2px #ffe6f1;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn {
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Botões baseados nas cores das Meninas Superpoderosas */
+.blossom {
+    background: #ff69b4; /* rosa da Florzinha */
+    box-shadow: 0 5px 15px #ff69b4;
+}
+
+.bubbles {
+    background: #00bfff; /* azul da Lindinha */
+    box-shadow: 0 5px 15px #00bfff;
+}
+
+.buttercup {
+    background: #7fff00; /* verde da Docinho */
+    box-shadow: 0 5px 15px #7fff00;
+}
+.butter {
+    background: #41fff6; /* verde da Docinho */
+    box-shadow: 0 5px 15px #34d1bc;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+}
+
+/* Animação pop-in */
+@keyframes pop-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .btn {
+        font-size: 1.2rem;
+        padding: 14px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
     }
 }

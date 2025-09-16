@@ -4,83 +4,164 @@
   <meta charset="UTF-8" />
   <title>Cadastro de Clientes</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Comic Neue', cursive;
+      background: linear-gradient(to bottom, #ffb6c1, #a0e7e5);
       margin: 40px;
-      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      color: #333;
     }
-    h1 {
-      text-align: center;
-    }
-    form {
-      background: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input {
+
+    .container {
+      background: white;
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
+      max-width: 450px;
+      text-align: center;
+      border: 5px solid #ff69b4;
+      animation: pop-in 0.7s ease forwards;
     }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #ff1493;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px #ffe6f1;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input {
+      padding: 12px 15px;
+      border-radius: 20px;
+      border: 2px solid #87cefa;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input:focus {
+      border-color: #7fff00;
+      box-shadow: 0 0 8px #7fff00;
+    }
+
     .btn {
-      padding: 10px 15px;
-      background-color: #4CAF50;
+      padding: 14px;
+      background: linear-gradient(45deg, #ff69b4, #00bfff, #7fff00);
       color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
       border: none;
+      border-radius: 30px;
       cursor: pointer;
-      border-radius: 4px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, opacity 0.3s;
     }
     .btn:hover {
-      background-color: #45a049;
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+
+    .btn-listagem {
+      background: #ff69b4;
+      box-shadow: 0 5px 15px #ff69b4;
+    }
+    .btn-listagem:hover {
+      background: #ff1493;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    @keyframes pop-in {
+      0% { opacity: 0; transform: scale(0.7); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @media(max-width: 480px) {
+      body {
+        margin: 20px;
+      }
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      input, .btn {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Cadastro de Clientes</h1>
 
-  <h1>Cadastro de Clientes</h1>
+<!-- Indicador de carregamento e feedback -->
+<div id="loading" style="display:none;" aria-live="polite">🔄 Carregando...</div>
+<div id="feedback" aria-live="polite"></div>
 
-  <!-- Botão para ir para a listagem -->
-  <button onclick="window.location.href='listagem.html'" class="btn">📄 Ver Listagem</button>
+    <form id="formCliente">
+      <input type="text" id="nome" placeholder="Nome" required />
+      <input type="email" id="email" placeholder="E-mail" required />
+      <input type="tel" id="telefone" placeholder="Telefone" required />
 
-  <form id="formCliente">
-    <input type="text" id="nome" placeholder="Nome" required />
-    <input type="email" id="email" placeholder="E-mail" required />
-    <input type="tel" id="telefone" placeholder="Telefone" required />
-    <button type="submit" class="btn">Cadastrar</button>
-  </form>
+      <!-- Botão cadastrar centralizado -->
+      <button type="submit" class="btn">Cadastrar</button>
 
-  <script>
-    const form = document.getElementById("formCliente");
+      <!-- Embaixo, voltar e listagem lado a lado -->
+      <div class="button-group">
+        <a href="index.html" class="btn">Voltar</a>
+        <button type="button" onclick="window.location.href='listagem.html'" class="btn btn-listagem">Ver Listagem</button>
+      </div>
+    </form>
+  </div>
+<style>
 
-    // Recupera clientes do localStorage
-    let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
-    let proximoCodigo = clientes.length ? clientes[clientes.length - 1].codigo + 1 : 1;
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+.btn-voltar, .btn-listagem {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+}
 
-      const nome = document.getElementById("nome").value;
-      const email = document.getElementById("email").value;
-      const telefone = document.getElementById("telefone").value;
-      const agora = new Date().toLocaleString();
+.btn-voltar {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+}
 
-      const cliente = {
-        codigo: proximoCodigo++,
-        nome,
-        email,
-        telefone,
-        dataCriacao: agora,
-        dataAtualizacao: agora
-      };
-
-      clientes.push(cliente);
-      localStorage.setItem("clientes", JSON.stringify(clientes));
-      alert("Cliente cadastrado com sucesso!");
-
-      form.reset();
-    });
-  </script>
-
+.btn-listagem {
+  background: linear-gradient(to right, #8ae5b2, #2b9cff);
+}
+ </style>
+  <!-- Importa o JS separado -->
+  <script src="cliente.js"></script>
+  
 </body>
 </html>

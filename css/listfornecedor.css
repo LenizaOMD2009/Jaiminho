@@ -1,165 +1,142 @@
-/* Fonte e corpo */
+/* Fonte divertida */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+/* RESET GLOBAL */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Corpo */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    color: #f5f6fa;
-    display: flex;
-    justify-content: center;
-    padding: 30px 10px;
-    margin: 0;
-    box-sizing: border-box;
+  background: linear-gradient(to bottom, #a0e7e5);
+  font-family: 'Comic Neue', cursive;
+  color: #333;
+  padding: 40px 10px;
+  display: flex;
+  justify-content: center;
 }
 
-/* Container da tabela */
+/* Container da Tabela */
 .table-container {
-    width: 100%;
-    max-width: 900px;
-    background-color: #1f1f2f;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-    overflow-x: auto;
+  width: 100%;
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 12px 30px rgba(255, 105, 180, 0.3);
+  border: 6px solid #ff69b4;
+  animation: pop-in 0.7s ease forwards;
+  overflow-x: auto;
 }
 
-/* Título */
+/* Título da Página */
 h1 {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 28px;
-    color: #f5f6fa;
+  text-align: center;
+  color: #ff1493;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px #ffe6f1;
 }
 
-/* Estilo da tabela */
+/* Tabela */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 700px;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 15px;
+  overflow: hidden;
+  min-width: 750px;
 }
 
-/* Cabeçalho */
+/* Cabeçalhos */
 th, td {
-    padding: 14px 20px;
-    text-align: left;
-    border-bottom: 1px solid #444;
-    font-size: 16px;
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 1rem;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Cabeçalho */
 th {
-    background-color: #40739e;
-    color: #fff;
-    font-weight: 600;
+  background: linear-gradient(90deg, #bafdc1, #9efaa7);
+  color: rgb(14, 80, 13);
+  font-weight: bold;
 }
 
 /* Linhas alternadas */
 tr:nth-child(even) {
-    background-color: #2b2b3f;
+  background-color: #fef6f8;
 }
 
-/* Hover nas linhas */
+/* Hover em linhas */
 tr:hover {
-    background-color: #3a3a5a;
-    transition: 0.2s;
+  background-color: #fff0f5;
+  transition: 0.3s;
 }
 
-/* Primeira coluna com ícone */
-td:first-child::before {
-    content: '';
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-    border-radius: 50%;
-    background-color: #40739e;
-    vertical-align: middle;
-}
-
-/* Responsividade */
-@media (max-width: 700px) {
-    th, td {
-        padding: 12px 10px;
-        font-size: 14px;
-    }
-}
-/* Botão de voltar */
-.button-voltar {
-    display: inline-block;
-    padding: 12px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #2f3640; /* Cor base */
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-
-/* Ícone de seta */
-.button-voltar::before {
-    content: '←';
-    margin-right: 8px;
-}
-
-/* Hover padrão */
-.button-voltar:hover {
-    background-color: #40739e;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-}
-
-/* Botão de sucesso */
-.button-voltar.success {
-    background-color: #44bd32;
-}
-
-.button-voltar.success:hover {
-    background-color: #4cd137;
-}
-
-/* Botão de aviso/warning */
-.button-voltar.warning {
-    background-color: #e1b12c;
-}
-
-.button-voltar.warning:hover {
-    background-color: #fbc531;
-}
+/* Grupo de Botões */
 .button-group-top {
-    display: flex;
-    justify-content: flex-end; /* coloca os botões no canto direito */
-    margin-bottom: 20px;
-    gap: 10px; /* espaço entre os botões */
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
+/* Botões */
 .button-group-top a {
-    display: inline-block;
-    text-decoration: none;
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  transition: transform 0.3s, opacity 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.btn-cadastrar {
+  background: linear-gradient(to right, #ff69b4, #ffa6d5);
+}
+
+.btn-voltar {
+  background: linear-gradient(to right, #00bfff, #9dceff);
+}
+
+.btn-relatorio {
+  background: linear-gradient(to right, #7fff00, #32cd32); 
+}
+
+.button-group-top a:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Animação */
+@keyframes pop-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  table {
+    min-width: 100%;
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .button-group-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-group-top a {
+    width: 100%;
     text-align: center;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: bold;
-    color: #fff;
-    transition: all 0.3s;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-/* Botão Voltar */
-.button-group-top a.button-voltar {
-    background-color: #40739e;
-}
-
-.button-group-top a.button-voltar:hover {
-    background-color: #2f3640;
-}
-
-/* Botão Cadastrar */
-.button-group-top a.cadastrar {
-    background-color: #44bd32;
-}
-
-.button-group-top a.cadastrar:hover {
-    background-color: #4cd137;
+  }
 }

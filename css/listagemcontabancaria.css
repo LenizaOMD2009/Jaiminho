@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 95%;
+    max-width: 1000px;
+    margin: 0 auto 30px;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #dceeff;
+    transition: 0.3s;
+}
+
+/* Botões */
+.btn {
+    padding: 10px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+/* Botão verde */
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Botão cadastro pequeno (não ocupa a largura toda) */
+.btn-cadastro {
+  width: 80px;
+  height: 40px;
+  border-radius: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: bold;
+  background: #56c0eb;
+  color: #000000;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+.btn-cadastro:hover {
+  background: #3f93b4;
+  color: #fff;
+}
