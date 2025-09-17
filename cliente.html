@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <link rel="stylesheet" href="css/fornecedor.css">
   <title>Cadastro de Clientes</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
@@ -109,59 +110,86 @@
   </style>
 </head>
 <body>
+<body>
   <div class="container">
     <h1>Cadastro de Clientes</h1>
 
-<!-- Indicador de carregamento e feedback -->
-<div id="loading" style="display:none;" aria-live="polite">🔄 Carregando...</div>
-<div id="feedback" aria-live="polite"></div>
 
-    <form id="formCliente">
-      <input type="text" id="nome" placeholder="Nome" required />
-      <input type="email" id="email" placeholder="E-mail" required />
-      <input type="tel" id="telefone" placeholder="Telefone" required />
+    <form class="autofill-form" id="form-empresa" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="cnpj"></label>
+          <input id="cnpj" name="cnpj" class="form-control" inputmode="numeric" placeholder="00.000.000/0000-00" aria-describedby="cnpj-desc">
+          <div id="cnpj-desc" class="small"></div>
+        </div>
 
-      <!-- Botão cadastrar centralizado -->
-      <button type="submit" class="btn">Cadastrar</button>
+        <div class="field">
+          <label for="razao_social"></label>
+          <input id="razao_social" name="razao_social" class="form-control" placeholder="Razão social">
+        </div>
+      </div>
 
-      <!-- Embaixo, voltar e listagem lado a lado -->
-      <div class="button-group">
-        <a href="index.html" class="btn">Voltar</a>
-        <button type="button" onclick="window.location.href='listagem.html'" class="btn btn-listagem">Ver Listagem</button>
+      <div class="form-row">
+        <div class="field">
+          <label for="nome_fantasia"></label>
+          <input id="nome_fantasia" name="nome_fantasia" class="form-control" placeholder="Nome fantasia">
+        </div>
+
+        <div class="field">
+          <label for="ie"></label>
+          <input id="ie" name="ie" class="form-control" placeholder="Inscrição estadual">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="cep"></label>
+          <input id="cep" name="cep" class="form-control" inputmode="numeric" placeholder="00000-000" aria-describedby="cep-desc">
+          <div id="cep-desc" class="small"></div>
+        </div>
+
+        <div class="field">
+          <label for="logradouro"></label>
+          <input id="logradouro" name="logradouro" class="form-control" placeholder="Rua / Av.">
+        </div>
+
+        <div class="field">
+          <label for="numero"></label>
+          <input id="numero" name="numero" class="form-control" placeholder="Número">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="bairro"></label>
+          <input id="bairro" name="bairro" class="form-control" placeholder="Bairro">
+        </div>
+
+        <div class="field">
+          <label for="cidade"></label>
+          <input id="cidade" name="cidade" class="form-control" placeholder="Cidade">
+        </div>
+
+        <div class="field">
+          <label for="estado"></label>
+          <input id="estado" name="estado" class="form-control" placeholder="UF (ex: SP)">
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="button-voltar">Salvar</button>
+        <button type="reset" class="button-voltar">Limpar</button>
+            <a href="index.html" class="button-voltar">Voltar</a>
+
+        <!-- a área de feedback é criada e usada pelo JS, mas deixamos espaço -->
       </div>
     </form>
-  </div>
-<style>
+  </main>
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
 
-.btn-voltar, .btn-listagem {
-  flex: 1;
-  text-align: center;
-  padding: 10px;
-  margin: 0 5px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #fff;
-}
-
-.btn-voltar {
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-}
-
-.btn-listagem {
-  background: linear-gradient(to right, #8ae5b2, #2b9cff);
-}
- </style>
-  <!-- Importa o JS separado -->
-  <script src="cliente.js"></script>
-  
+  <script src="js/cliente.js"></script>
 </body>
 </html>
+
+
+

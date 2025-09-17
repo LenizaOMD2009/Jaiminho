@@ -1,0 +1,93 @@
+/* Resetando algumas propriedades */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ff99cc; /* Cor inspirada nas Meninas Superpoderosas */
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Estilo para o formulário */
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ff66b2; /* Cor rosa vibrante */
+    border-radius: 5px;
+    background-color: #ffecf9; /* Fundo claro para os campos */
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #ff66b2;
+}
+
+/* Foco nos inputs */
+input:focus, select:focus {
+    border-color: #ff3399; /* Cor de foco inspirada na Blossom */
+    outline: none;
+}
+
+/* Estilo dos botões (se houver) */
+button {
+    background-color: #33cc99; /* Cor verde para representar a Bubbles */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #29b382;
+}
+
+/* Indicador de carregamento */
+#loading {
+    font-size: 18px;
+    color: #ff66b2;
+    font-weight: bold;
+}
+
+/* Feedback do formulário */
+#feedback {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff3399; /* Cor de Blossom para o feedback */
+}
+.button-voltar,
+.button-lista {
+    flex: 1;
+    padding: 10px;
+    background-color: #FF69B4;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 1px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button-voltar:hover {
+    background-color: #FF1493;
+}
